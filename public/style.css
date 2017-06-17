@@ -1,0 +1,28 @@
+
+
+li:hover {
+    background-color: lightblue;
+}
+
+li:link {
+    color: green;
+}
+
+.button{
+   text-align:center;
+}
+.ellipsis{
+
+  text-overflow: ellipsis;
+   white-space: nowrap;
+  overflow: hidden;
+}
+li{
+text-align:center;
+padding: 10px 15px 18px 15px;
+
+}
+
+ul{
+padding: 30px 10px 0px 10px;
+}
