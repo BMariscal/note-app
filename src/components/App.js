@@ -5,7 +5,7 @@ const App = (props) => {
 
   return (
   <div>
-  <Form/>
+  <Form data={props.data}/>
   </div>
 
   )

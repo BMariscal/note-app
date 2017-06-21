@@ -7,7 +7,7 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
-    this.listed =[];
+    this.listed =this.props.data.notes;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -30,7 +30,7 @@ class Form extends React.Component {
     <div className="body">
      <form onSubmit={this.handleSubmit}>
       <div className="form-group">
-    <label >Notes</label>
+    <label ></label>
     <textarea className="form-control" id="textarea" rows="3" type="text" value={this.state.value} onChange={this.handleChange}></textarea>
   </div>
        <div className="button">
