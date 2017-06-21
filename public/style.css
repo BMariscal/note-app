@@ -7,6 +7,13 @@ li:hover  {
     background-color: #eef7fa;
 }
 
+#edit_pen{
+float: right;
+margin-top: 20px;
+ z-index: 1;
+display: inline-block;
+}
+
 .input_field,.form-control{
 font-size:25px;
 }
@@ -63,6 +70,7 @@ background-color: #fafafa;
 
 }
 .input_field{
+
 text-align: center;
 line-height: 80px;
 outline: none;

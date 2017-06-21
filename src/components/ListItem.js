@@ -1,29 +1,40 @@
 import React from 'react';
+import ListItemEdit from './ListItemEdit'
 
-function ListItem(props) {
-
-  return (
-    <li className="list-group-item">
+class ListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showReply: false
+    }
+  }
+  onClick(e){
+    e.preventDefault();
+    this.setState({showReply: !this.state.showReply})
+  }
+  render() {
+    return (
+      <div>
+        <li className="list-group-item">
         <form  method="post">
-        <input className="overflow ellipsis input_field" type="text" name="content" size="100" defaultValue={props.value}/>
-
-      <div className="my_buttons">
+        <input className="overflow ellipsis input_field" type="text" name="content" size="100" defaultValue={this.props.value}/>
 
 
-            <button type="submit" className="btn btn-primary btn-sm" onClick={props.onClick0}>Save</button>
-               <form action="/task" method="get">
-              <button type="submit" className="btn btn-primary btn-sm" name="id"onClick={props.onClick2} itemID={props.itemID} value={props.itemID} >Details</button>
-                </form>
-                <form action="/" method="post">
-            <button type="submit" className="btn btn-primary btn-sm" onClick={props.onClick1}>Delete</button>
-                </form>
-            </div>
+         <a onClick={this.onClick.bind(this)} href='#'><span id="edit_pen">✏️</span></a>
+        {this.state.showReply && < ListItemEdit
+              value={this.props.value}
+              itemID={this.props.itemID}
+              onClick0={this.props.onClick0}
+              onClick1={this.props.onClick1}
+              onClick2={this.props.onClick2} />}
+
+
         </form>
-
-
-
     </li>
-  );
+
+      </div>
+    )
+  }
 }
 
 
