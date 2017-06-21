@@ -1,5 +1,6 @@
 import config from './config';
 import path from 'path';
+import apiRouter from './api';
 import express from 'express';
 import bodyParser from 'body-parser';
 
@@ -8,10 +9,15 @@ const server = express();
 server.use(bodyParser.json());
 
 
+
 server.set('view engine', 'ejs');
+server.use('/api', apiRouter);
 
 server.get('/', (req, res,next) => {
-    res.render('index')
+    res.render('index',{
+      content: 'data',
+      beep: '<h1>BEEP</h1>'
+    })
     });
 
 server.get('/task', function(req, res) {

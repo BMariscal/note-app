@@ -1,5 +1,6 @@
 import React from 'react';
 import ListItemEdit from './ListItemEdit'
+import PropTypes from 'prop-types';
 
 class ListItem extends React.Component {
   constructor(props) {
@@ -35,6 +36,14 @@ class ListItem extends React.Component {
       </div>
     )
   }
+}
+
+ListItem.propTypes ={
+  value: PropTypes.string.isRequired,
+  itemId: PropTypes.string,
+  onClick0: PropTypes.func,
+  onClick1: PropTypes.func,
+  onClick2: PropTypes.func
 }
 
 
