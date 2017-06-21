@@ -3,6 +3,7 @@ import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 
+
 const server = express();
 server.use(bodyParser.json());
 
@@ -13,6 +14,14 @@ server.get('/', (req, res,next) => {
     res.render('index')
     });
 
+server.get('/task', function(req, res) {
+
+  res.send('id:' + req.query.id)
+});
+
+server.post('/', function(req, res) {
+  res.send('update');
+});
 
 
 server.use(express.static('public'));

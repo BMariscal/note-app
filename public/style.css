@@ -1,7 +1,14 @@
 
 
-li:hover {
-    background-color: lightblue;
+li:hover .input_field {
+    background-color: #eef7fa;
+}
+li:hover  {
+    background-color: #eef7fa;
+}
+
+.input_field,.form-control{
+font-size:25px;
 }
 
 li:link {
@@ -10,6 +17,7 @@ li:link {
 
 .button{
    text-align:center;
+
 }
 .ellipsis{
 
@@ -19,10 +27,255 @@ li:link {
 }
 li{
 text-align:center;
-padding: 10px 15px 18px 15px;
-
+padding: 10px 20px 0px 20px;
+height: 150px;
 }
 
 ul{
 padding: 30px 10px 0px 10px;
 }
+button{
+margin:5px;
+
+
+}
+.my_buttons{
+right:0;
+display:flex;
+
+  margin: 2px;
+  position:relative;
+  text-align: right;
+  border-radius:4px;
+  text-decoration: none;
+  font-family:'PT Sans',helvetica;
+  font-size: 17px !important;
+  padding: 10px 10px 10px 10px;
+  color: #FFF;
+
+
+}
+body{
+background-color: #fafafa;
+}
+.body{
+    padding: 50px;
+
+}
+.input_field{
+text-align: center;
+line-height: 80px;
+outline: none;
+border:none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  max-width: 100%;
+
+}
+#social_media{
+  margin-left: 0;
+
+}
+
+.header{
+  height: 70px;
+  width: 100%;
+  background-color: #ff4d64;
+}
+
+@media (max-width: 1022px) {
+    .body{
+    padding: 0;
+      }
+}
+@media (min-width: 1022px) and (max-width: 1024px) {
+    .body{padding: 50px 300px 0 300px;}
+
+    #social_media{margin-left: 120px;}
+}
+@media (min-width: 1025px) {
+    .body{padding: 50px 300px 0 300px;}
+
+    #social_media{margin-left: 250px;}
+}
+
+
+
+
+
+.break{
+  margin-top: 15px;
+  margin-left: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fafafa;
+  background-color: #696969;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: 0.5px solid #696969;
+  box-shadow: 0px 3px 5px #000000
+}
+.break:active{
+  background-color: #4f4f4f;
+
+}
+
+
+
+/* Add animation (Chrome, Safari, Opera) */
+@-webkit-keyframes example {
+    from {top:-100px;opacity: 0;}
+    to {top:0px;opacity:1;}
+}
+
+/* Add animation (Standard syntax) */
+@keyframes example {
+    from {top:-100px;opacity: 0;}
+    to {top:0px;opacity:1;}
+}
+
+/* The modal's background */
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Display the modal when targeted */
+.modal:target {
+  display: table;
+  position: absolute;
+}
+
+/* The modal box */
+.modal-dialog {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* The modal's content */
+.modal-dialog .modal-content {
+  margin: auto;
+  background-color: #f3f3f3;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  border: 1px #777 solid;
+  text-align: justify;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  /* Add animation */
+  -webkit-animation-name: example; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 0.5s; /* Chrome, Safari, Opera */
+  animation-name: example;
+  animation-duration: 0.5s;
+}
+
+/* The button used to close the modal */
+.closebtn {
+  text-decoration: none;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  color: #d3d3d3;
+}
+
+.closebtn:hover,
+.closebtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalcontainer {
+  padding: 2px 16px;
+/*  height: 150px;*/
+/*  width: 50%;*/
+  margin: 0 auto;
+}
+
+
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 80px;
+  height: 80px;
+  display:inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 0px 0px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+   width: 80px;
+  height: 80px;
+}
+
+img{
+  margin-top: 5px;
+  margin-right: 15px;
+  float:right;
+}
+
+
+
+
+
+
+
+
+

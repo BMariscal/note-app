@@ -26,7 +26,8 @@ class Form extends React.Component {
 
   render() {
     return (
-    <div>
+
+    <div className="body">
      <form onSubmit={this.handleSubmit}>
       <div className="form-group">
     <label >Notes</label>
@@ -38,10 +39,11 @@ class Form extends React.Component {
       </form>
 
       <div>
-        <NoteList listedContent={this.listed.length > 0? this.listed: ["Enter tasks/notes above and your items will appear below"]}/>
+        <NoteList listedContent={this.listed}/>
       </div>
 
       </div>
+
     );
   }
 }
