@@ -12,7 +12,8 @@ class ListItemEdit extends React.Component {
               itemID={this.props.itemID}
               onClick0={this.props.onClick0}
               onClick1={this.props.onClick1}
-              onClick2={this.props.onClick2}/></div>
+              onClick2={this.props.onClick2}/>
+              </div>
     )
   }
 }

@@ -21,6 +21,9 @@ $color_guardsman_red_approx: #bb0000;
 $color_venice_blue_approx: #125688;
 $color_cardinal_approx: #cb2027;
 $color_international_orange_approx: #ff5700;
+$color_regent_st_blue_approx: #86c5da;
+$pale-sky:#6b717f;
+$midnight-blue:#036;
 
 //fonts
 $font_0: PT Sans;
@@ -33,7 +36,7 @@ $font_1: helvetica;
 li {
     text-align: center;
     padding: 10px 20px 0;
-    height: 150px;
+
     &:hover {
         background-color: $color_catskill_white_approx;
         .input_field {
@@ -272,4 +275,46 @@ img {
     margin-top: 5px;
     margin-right: 15px;
     float: right;
+}
+#details_button {
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 8px;
+    background-color: $pale-sky;
+    border: none;
+    color: $white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#save_button {
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: $pale-sky;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#delete_button{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: $pale-sky;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
 }

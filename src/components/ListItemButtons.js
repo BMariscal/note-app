@@ -1,5 +1,9 @@
 import React from 'react';
 
+const style = {
+  marginLeft: 5
+};
+
 function Buttons(props) {
   function handleClick(e) {
     e.preventDefault();
@@ -7,16 +11,13 @@ function Buttons(props) {
   }
 
   return (
-  <div>
-    <a href="#" onClick={props.onClick0}><button>
+  <div style={style}>
+    <a href="#" onClick={props.onClick0}><button id="save_button">
       Save
       </button>
     </a>
-        <a href="#" onClick={props.onClick2}><button>
-      Details
-      </button>
-    </a>
-        <a href="#" onClick={props.onClick3}><button>
+
+        <a href="#" onClick={props.onClick3}><button id="delete_button">
       Delete
       </button>
     </a>

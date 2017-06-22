@@ -3,14 +3,23 @@ import NoteList from './NoteList';
 
 
 
+
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-    this.listed =this.props.data.notes;
+    this.state = {value: '', listed: []};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidUpdate(prevProps, prevState) {
+
+    if (prevProps.data!== this.props.data) {
+          this.setState({listed: this.props.data});
+      }
+}
+
+
 
   handleChange(event) {
   event.preventDefault();
@@ -18,13 +27,26 @@ class Form extends React.Component {
   }
 
   handleSubmit(event) {
+
+
    event.preventDefault();
-   this.listed.push(this.state.value)
-   this.setState({value: ''});
+
+
+  this.listed.push(
+            {
+        "id":this.listed.length+1,
+        "title": this.state.value,
+        "content": ""
+
+  })
+
+  this.setState({value: ''});
+
 
   }
 
   render() {
+
     return (
 
     <div className="body">
@@ -39,7 +61,7 @@ class Form extends React.Component {
       </form>
 
       <div>
-        <NoteList listedContent={this.listed}/>
+        <NoteList listedContent={this.state.listed}/>
       </div>
 
       </div>

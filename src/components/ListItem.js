@@ -15,7 +15,7 @@ class ListItem extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div >
         <li className="list-group-item">
         <form  method="post">
         <input className="overflow ellipsis input_field" type="text" name="content" size="100" defaultValue={this.props.value}/>
@@ -31,7 +31,16 @@ class ListItem extends React.Component {
 
 
         </form>
+
+      <form action="/task" method="get">
+      <button id="details_button" type="submit"  name="id" onClick={this.props.onClick2} itemID={this.props.itemID} value={this.props.itemID} >Details</button>
+
+     </form>
+
+
+
     </li>
+
 
       </div>
     )
@@ -39,7 +48,7 @@ class ListItem extends React.Component {
 }
 
 ListItem.propTypes ={
-  value: PropTypes.string.isRequired,
+  value: PropTypes.array.isRequired,
   itemId: PropTypes.string,
   onClick0: PropTypes.func,
   onClick1: PropTypes.func,

@@ -40,9 +40,9 @@ function NoteList(props) {
   return (
     <ul className="list-group">
     {notes.map((note,i) =>
-    <ListItem key={i}
-              value={JSON.stringify(note.title).replace(/['"]+/g, '')}
-              itemID={i}
+    <ListItem key={note.id}
+              value={[note.title]}
+              itemID={note.id}
               onClick0={(e)=>Edit(i)}
               onClick1={(e)=>Delete(i)}
               onClick2={(e)=>Details(i)}

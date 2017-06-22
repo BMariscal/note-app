@@ -30,9 +30,9 @@ server.get('/task', function(req, res) {
   res.send('id:' + req.query.id)
 });
 
-server.post('/', function(req, res) {
-  res.send('update');
-});
+// server.post('/', function(req, res) {
+//   res.send('update');
+// });
 
 
 server.use(express.static('public'));
