@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './Form';
-import axios from 'axios';
+// import axios from 'axios';
 import PropTypes from 'prop-types';
 
 
@@ -9,23 +9,23 @@ class App extends React.Component{
      constructor(props) {
     super(props);
     this.state = {
-        data: this.props.data
+        data: this.props.initialnotes
     };
 }
 
 
-    componentDidMount(){
+    // componentDidMount(){
 
-        axios.get('/api/notes')
-            .then(resp => {
+    //     axios.get('/api/notes')
+    //         .then(resp => {
 
-            this.setState({
-                data: resp.data.notes
-                  });
-                console.log(resp.data.notes, "NOTES")
-            })
-            .catch(console.error)
-    }
+    //         this.setState({
+    //             data: resp.data.notes
+    //               });
+    //             console.log(resp.data.notes, "NOTES")
+    //         })
+    //         .catch(console.error)
+    // }
     render(){
             console.log(this.state, "STATE")
             console.log(this.state.data, "This.state.data")

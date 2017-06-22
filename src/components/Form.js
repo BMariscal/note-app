@@ -7,17 +7,17 @@ import NoteList from './NoteList';
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: '', listed: []};
+    this.state = {value: '', listed: this.props.data};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState) {
+//   componentDidUpdate(prevProps, prevState) {
 
-    if (prevProps.data!== this.props.data) {
-          this.setState({listed: this.props.data});
-      }
-}
+//     if (prevProps.data!== this.props.data) {
+//           this.setState({listed: this.props.data});
+//       }
+// }
 
 
 

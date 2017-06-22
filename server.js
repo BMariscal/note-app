@@ -1,12 +1,12 @@
 import config from './config';
 import path from 'path';
 import apiRouter from './api';
-import express from 'express';
 import sassMiddleware from 'node-sass-middleware';
 import bodyParser from 'body-parser';
 
 
 
+import express from 'express';
 const server = express();
 server.use(bodyParser.json());
 
@@ -19,14 +19,23 @@ server.use(sassMiddleware({
 server.set('view engine', 'ejs');
 server.use('/api', apiRouter);
 
+import serverRender from './serverRender';
 server.get('/', (req, res,next) => {
-    res.render('index',{
-      beep: '<h2>My Tasks</h2>'
+    serverRender()
+    .then( ({initialMarkup, initialData})=> {
+
+      res.render('index',{
+        initialMarkup,
+        initialData
+
+      });
+
     })
+    .catch(console.error);
+
     });
 
 server.get('/task', function(req, res) {
-
   res.send('id:' + req.query.id)
 });
 
@@ -47,6 +56,7 @@ server.get('*', function(req, res, next) {
 // handling 404 errors
 server.use(function(err, req, res, next) {
   if(err.status !== 404) {
+    console.log(err)
     return next();
   }
 
