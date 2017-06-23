@@ -7,16 +7,16 @@ import config from './config';
 import axios from 'axios';
 
 
-const serverRender = ()=>
-axios.get(`${config.serverUrl}/api/notes`)
-    .then(resp => {
+const serverRender = () =>
+    axios.get(`${config.serverUrl}/api/notes`)
+        .then(resp => {
 
-        return {
-            initialMarkup: ReactDOMServer.renderToString(
-                <App initialnotes={resp.data.notes}/>),
-            initialData: resp.data
-        };
-    });
+            return {
+                initialMarkup: ReactDOMServer.renderToString(
+                    <App initialnotes={resp.data.notes}/>),
+                initialData: resp.data
+            };
+        });
 
 
 export default serverRender;

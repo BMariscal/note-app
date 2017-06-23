@@ -4,20 +4,22 @@ import Form from './Form';
 import PropTypes from 'prop-types';
 
 
-class App extends React.Component{
 
-     constructor(props) {
-    super(props);
-    this.state = {
-        data: this.props.initialnotes
-    };
-}
+const pushState = (obj, url) =>
+    window.history.pushState(obj, '',url);
+
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: this.props.initialnotes
+        };
+    }
 
 
     // componentDidMount(){
 
-    //     axios.get('/api/notes')
-    //         .then(resp => {
 
     //         this.setState({
     //             data: resp.data.notes
@@ -26,28 +28,43 @@ class App extends React.Component{
     //         })
     //         .catch(console.error)
     // }
-    render(){
-            console.log(this.state, "STATE")
-            console.log(this.state.data, "This.state.data")
-    return (
-    <div>
-    <Form data={this.state.data}/>
-    </div>
 
-  )}
+    fetchNote =(noteId) => {
+        pushState(
+            {currentNoteId: noteId},
+            `/note/${noteId}`
+        );
+
+    };
+
+
+
+    render() {
+        // console.log(this.state, "STATE")
+        // console.log(this.state.data, "This.state.data")
+        return (
+            <div>
+                <Form
+
+                    onNoteClick={this.fetchNote}
+
+                    data={this.state.data}/>
+            </div>
+
+        )
+    }
 }
 
-App.defaultProps = {
-    data : [
-    {
-        "id":1,
-        "title": "Hello! Please enter a task",
-        "content": ""
-
-    }
-    ]
-};
-
+// App.defaultProps = {
+//     data: [
+//         {
+//             "id": 1,
+//             "title": "Hello! Please enter a task",
+//             "content": ""
+//
+//         }
+//     ]
+// };
 
 
 export default App;

@@ -61,7 +61,10 @@ class Form extends React.Component {
       </form>
 
       <div>
-        <NoteList listedContent={this.state.listed}/>
+        <NoteList
+
+            onNoteClick={this.props.onNoteClick}
+            listedContent={this.state.listed}/>
       </div>
 
       </div>
