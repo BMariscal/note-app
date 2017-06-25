@@ -259,3 +259,10 @@ img {
   text-decoration: none;
   display: inline-block;
   font-size: 16px; }
+
+.home-link {
+  margin-top: 1em;
+  color: #3b5998; }
+
+.no-border {
+  border: none; }

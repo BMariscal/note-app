@@ -12,7 +12,7 @@ const notes = data.notes.reduce((obj, note) => {
 
 
 //fetch notes object
-router.get('/notes',(req,res) =>{
+router.get('/note',(req,res) =>{
     res.send({
 
     notes: notes
@@ -21,7 +21,7 @@ router.get('/notes',(req,res) =>{
 
 
 //fetch single note content from api
-router.get('/notes/:noteId',(req,res) =>{
+router.get('/note/:noteId',(req,res) =>{
 
     let note = notes[req.params.noteId];
 

@@ -11,7 +11,7 @@ import {
 
 function NoteList(props) {
   const notes = props.listedContent.notes;
-  console.log(props.listedContent.notes, "inside Notelist")
+  // console.log(props.listedContent.notes, "inside Notelist")
   function Edit(i){
   if(i === 0){
 

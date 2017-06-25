@@ -17,9 +17,9 @@ import axios from 'axios';
 const getApiUrl = noteId => {
 
     if (noteId){
-      return `${config.serverUrl}/api/notes/${noteId}`;
+      return `${config.serverUrl}/api/note/${noteId}`;
     }
-    return `${config.serverUrl}/api/notes`;
+    return `${config.serverUrl}/api/note`;
 
 };
 
@@ -38,6 +38,7 @@ const getInitialData = (noteId, apiData) =>{
       notes: {[apiData.id]: apiData}
     };
   }
+
   return {
     notes: apiData.notes
   };
@@ -57,6 +58,7 @@ const serverRender = (noteId) =>
         .then(resp => {
 
             const initialData = getInitialData(noteId, resp.data)
+          console.log(initialData, "initialData inside serverRender()")
             return {
                 initialMarkup: ReactDOMServer.renderToString(
                     <App initialData={initialData}/>),
