@@ -10,7 +10,8 @@ import {
 
 
 function NoteList(props) {
-  const notes = props.listedContent
+  const notes = props.listedContent.notes;
+  console.log(props.listedContent.notes, "inside Notelist")
   function Edit(i){
   if(i === 0){
 
@@ -48,15 +49,16 @@ function NoteList(props) {
 
     <ul className="list-group">
 
-    {notes.map((note,i) =>
 
-    <ListItem key={note.id}
-              value={[note.title]}
+    {Object.keys(notes).map(noteID =>
+
+    <ListItem key={noteID}
+              value={notes[noteID]}
               onNoteClick={props.onNoteClick}
-              itemID={note.id}
-              onClick0={(e)=>Edit(i)}
-              onClick1={(e)=>Delete(i)}
-              onClick2={(e)=>Details(i)}
+              itemID={noteID}
+              onClick0={(e)=>Edit(noteID)}
+              onClick1={(e)=>Delete(noteID)}
+              onClick2={(e)=>Details(noteID)}
               />
 
 

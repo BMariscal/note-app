@@ -14,7 +14,7 @@ class ListItem extends React.Component {
     this.setState({showReply: !this.state.showReply})
   }
   handleClick =() =>{
-      this.props.onNoteClick(this.props.itemID)
+      this.props.onNoteClick(this.props.value.id)
 
   };
   render() {
@@ -23,7 +23,7 @@ class ListItem extends React.Component {
         <li className="list-group-item">
 
         <form  method="post">
-        <input className="overflow ellipsis input_field" type="text" name="content" size="100" defaultValue={this.props.value}/>
+        <input className="overflow ellipsis input_field" type="text" name="content" size="100" defaultValue={this.props.value.title}/>
 
 
          <a onClick={this.onClickPen.bind(this)} href='#'><span id="edit_pen">✏️</span></a>
@@ -48,13 +48,13 @@ class ListItem extends React.Component {
   }
 }
 
-ListItem.propTypes ={
-  value: PropTypes.array.isRequired,
-  itemId: PropTypes.string,
-  onClick0: PropTypes.func,
-  onClick1: PropTypes.func,
-  onClick2: PropTypes.func
-}
+// ListItem.propTypes ={
+//   value: PropTypes.object.isRequired,
+//   itemId: PropTypes.string,
+//   onClick0: PropTypes.func,
+//   onClick1: PropTypes.func,
+//   onClick2: PropTypes.func
+// }
 
 
 export default ListItem;

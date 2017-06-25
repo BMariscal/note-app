@@ -20,8 +20,12 @@ server.set('view engine', 'ejs');
 server.use('/api', apiRouter);
 
 import serverRender from './serverRender';
-server.get('/', (req, res,next) => {
-    serverRender()
+server.get(['/','/note/:noteId' ],(req, res,next) => {
+
+  if(req.params.noteId){
+    console.log(req.params.noteId)
+  }
+    serverRender(req.params.noteId)
     .then( ({initialMarkup, initialData})=> {
 
       res.render('index',{

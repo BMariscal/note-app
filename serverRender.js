@@ -7,14 +7,60 @@ import config from './config';
 import axios from 'axios';
 
 
-const serverRender = () =>
-    axios.get(`${config.serverUrl}/api/notes`)
+
+// {
+//   [apiData.id] : apiData
+//
+// }
+
+
+const getApiUrl = noteId => {
+
+    if (noteId){
+      return `${config.serverUrl}/api/notes/${noteId}`;
+    }
+    return `${config.serverUrl}/api/notes`;
+
+};
+
+// [apiData.id]: apiData
+
+const getInitialData = (noteId, apiData) =>{
+
+
+
+  if (noteId){
+    console.log(noteId, 'noteid in getInitialData/serverRender')
+    console.log(apiData.id, 'apiData.id in getInitialData/serverRender')
+    return {
+      pageHeader: apiData.title,
+      currentNoteId: apiData.id,
+      notes: {[apiData.id]: apiData}
+    };
+  }
+  return {
+    notes: apiData.notes
+  };
+
+};
+
+
+
+
+//<App initialnotes={initialData.notes}/>),
+
+
+
+
+const serverRender = (noteId) =>
+    axios.get(getApiUrl(noteId))
         .then(resp => {
 
+            const initialData = getInitialData(noteId, resp.data)
             return {
                 initialMarkup: ReactDOMServer.renderToString(
-                    <App initialnotes={resp.data.notes}/>),
-                initialData: resp.data
+                    <App initialData={initialData}/>),
+                initialData
             };
         });
 
