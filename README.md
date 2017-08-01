@@ -11,6 +11,7 @@ To run:
         you just need to refresh the page)
  
 This project closely follows [this tutorial by Samer Buna](https://www.lynda.com/Express-js-tutorials/Learning-Full-Stack-JavaScript-Development-MongoDB-Node-React/533304-2.html) but has a different layout, structure, and adds the following functionalities: 
+
                         * ability to add/delete/edit notes
                         * a 'Break' button with social media options
                         * an input field on the main page
