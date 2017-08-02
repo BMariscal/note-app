@@ -2,7 +2,6 @@ import React from 'react';
 import Form from './Form';
 import Note from './Note';
 import * as api from '../api';
-// import axios from 'axios';
 import PropTypes from 'prop-types';
 
 
@@ -15,29 +14,11 @@ const pushState = (obj, url) =>{
 }
 
 class App extends React.Component {
-
-  // static propTypes = {
-  //   initialData: PropTypes.object.isRequired
-  // }
   constructor(props){
     super(props);
     this.state = this.props.initialData;
   }
 
-
-
-
-
-  // componentDidMount(){
-
-
-  //         this.setState({
-  //             data: resp.data.notes
-  //               });
-  //             console.log(resp.data.notes, "NOTES")
-  //         })
-  //         .catch(console.error)
-  // }
 
   fetchNote = (noteId) => {
 
@@ -47,7 +28,7 @@ class App extends React.Component {
       `/note/${noteId}`
     );
     console.log(pushState, "pushState")
-//...this.state.data,
+
     api.fetchNote(noteId).then(note => {
       console.log(this.props.initialData, "this.props.initialData in api.fetchNote")
       console.log(note, "note inside fetchNote/app.js")
@@ -69,7 +50,7 @@ class App extends React.Component {
 
 
   };
-  // window.history.go(-2);
+  
   currentNote(){
     console.log(this.state.currentNoteID, 'currentNoteID inside currentNote')
 
@@ -101,9 +82,7 @@ class App extends React.Component {
 
   render() {
     console.log(this.state.currentNoteID, 'here')
-    // console.log(this.props.initialData, "initial data");
-    // console.log(this.state, "STATE")
-    // console.log(this.state.data, "This.state.data")
+
     return (
       <div>
         <div>{this.state.pageHeader}
