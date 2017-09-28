@@ -2,7 +2,6 @@ import React from 'react';
 import Form from './Form';
 import Note from './Note';
 import * as api from '../api';
-// import axios from 'axios';
 import PropTypes from 'prop-types';
 
 
@@ -18,17 +17,21 @@ const onPopState = handler => {
 }
 
 class App extends React.Component {
+<<<<<<< HEAD
 
   static propTypes = {
     initialData: PropTypes.object.isRequired
   }
   state = this.props.initialData;
+=======
+>>>>>>> 37db715729dde8fc2fc9c0ea9ddeb8c8d8331876
   constructor(props){
     super(props);
     this.state = this.props.initialData;
   }
 
 
+<<<<<<< HEAD
 
 
 
@@ -39,6 +42,8 @@ class App extends React.Component {
     });
   }
 
+=======
+>>>>>>> 37db715729dde8fc2fc9c0ea9ddeb8c8d8331876
   fetchNote = (noteId) => {
 
     console.log(pushState, "pushState")
@@ -47,7 +52,7 @@ class App extends React.Component {
       `/note/${noteId}`
     );
     console.log(pushState, "pushState")
-//...this.state.data,
+
     api.fetchNote(noteId).then(note => {
       console.log(this.props.initialData, "this.props.initialData in api.fetchNote")
       console.log(note, "note inside fetchNote/app.js")
@@ -91,6 +96,7 @@ class App extends React.Component {
 
 
   };
+<<<<<<< HEAD
 
 
 
@@ -125,6 +131,11 @@ class App extends React.Component {
   // window.history.go(-2);
   currentContent(){
     console.log(this.state.currentNoteID, 'currentNoteID inside currentContent')
+=======
+  
+  currentNote(){
+    console.log(this.state.currentNoteID, 'currentNoteID inside currentNote')
+>>>>>>> 37db715729dde8fc2fc9c0ea9ddeb8c8d8331876
 
     if(this.state.currentNoteID || Object.keys(this.props.initialData).length === 3 ){
       console.log(this.props.initialData.notes, "initial data")
@@ -159,9 +170,7 @@ class App extends React.Component {
 
   render() {
     console.log(this.state.currentNoteID, 'here')
-    // console.log(this.props.initialData, "initial data");
-    // console.log(this.state, "STATE")
-    // console.log(this.state.data, "This.state.data")
+
     return (
       <div>
         <div>{this.state.pageHeader}
