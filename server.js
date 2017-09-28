@@ -17,7 +17,7 @@ server.use(sassMiddleware({
 }));
 
 server.set('view engine', 'ejs');
-server.use('/api', apiRouter);
+
 
 import serverRender from './serverRender';
 server.get(['/','/note/:noteId' ],(req, res,next) => {
@@ -39,15 +39,16 @@ server.get(['/','/note/:noteId' ],(req, res,next) => {
 
     });
 
-server.get('/task', function(req, res) {
-  res.send('id:' + req.query.id)
-});
+// server.get('/task', function(req, res) {
+//   res.send('id:' + req.query.id)
+// });
 
 // server.post('/', function(req, res) {
 //   res.send('update');
 // });
 
-
+//
+server.use('/api', apiRouter);
 server.use(express.static('public'));
 
 // * : Use this route for any GET request not already handled
@@ -56,16 +57,16 @@ server.get('*', function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-// handling 404 errors
-server.use(function(err, req, res, next) {
-  if(err.status !== 404) {
-    console.log(err)
-    return next();
-  }
-
-  res.send(err.message || '** nothing here, wyd? **');
-});
+//
+// // handling 404 errors
+// server.use(function(err, req, res, next) {
+//   if(err.status !== 404) {
+//     console.log(err)
+//     return next();
+//   }
+//
+//   res.send(err.message || '** nothing here, wyd? **');
+// });
 
 server.listen(config.port, config.host, () => {
   console.info('Express listening on port', config.port);

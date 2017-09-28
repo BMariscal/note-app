@@ -13,11 +13,12 @@ class Note extends Component{
       <div className="Note">
         <form className="contest-description">
 
-          <textarea className="form-control no-border" id="textarea" rows="3" type="text" value={this.props.note} ></textarea>
+          <textarea className="form-control no-border" id="textarea" rows="3" type="text" defaultValue={this.props.note} ></textarea>
         </form>
         <div className="home-link link"
-          onClick={this.props.noteListClick}>
-          Note List
+          /*onClick={this.props.noteListClick}>*/>
+          <a href="http://localhost:8080/"> Note List</a>
+
         </div>
 
       </div>

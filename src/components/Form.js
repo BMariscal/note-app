@@ -12,13 +12,6 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-//   componentDidUpdate(prevProps, prevState) {
-
-//     if (prevProps.data!== this.props.data) {
-//           this.setState({listed: this.props.data});
-//       }
-// }
-
 
 
   handleChange(event) {
@@ -38,7 +31,8 @@ class Form extends React.Component {
         "title": this.state.value,
         "content": ""
 
-  })
+  });
+
 
   this.setState({value: ''});
 

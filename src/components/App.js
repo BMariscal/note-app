@@ -13,12 +13,16 @@ const pushState = (obj, url) =>{
 
 
 }
+const onPopState = handler => {
+  window.onpopstate = handler;
+}
 
 class App extends React.Component {
 
-  // static propTypes = {
-  //   initialData: PropTypes.object.isRequired
-  // }
+  static propTypes = {
+    initialData: PropTypes.object.isRequired
+  }
+  state = this.props.initialData;
   constructor(props){
     super(props);
     this.state = this.props.initialData;
@@ -28,16 +32,12 @@ class App extends React.Component {
 
 
 
-  // componentDidMount(){
-
-
-  //         this.setState({
-  //             data: resp.data.notes
-  //               });
-  //             console.log(resp.data.notes, "NOTES")
-  //         })
-  //         .catch(console.error)
-  // }
+  componentDidMount(){
+    onPopState((event)=>{ if (!event.state){
+      location.reload();
+    }
+    });
+  }
 
   fetchNote = (noteId) => {
 
@@ -66,19 +66,77 @@ class App extends React.Component {
       , "window history")
     });
 
+  };
+
+
+
+  fetchNoteList = () => {
+    location.reload();
+
+    pushState(
+      {currentNoteId: null},
+      '/'
+    );
+
+    api.fetchNoteList().then(notes => {
+      this.setState({
+        pageHeader: null,
+        currentNoteID: null,
+        notes: notes
+
+      });
+
+    });
+
 
 
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // currentNote() {
+  //   return this.state.notes[this.state.currentNoteID];
+  // }
+
+
+
+
+
+
+
+
+
   // window.history.go(-2);
-  currentNote(){
-    console.log(this.state.currentNoteID, 'currentNoteID inside currentNote')
+  currentContent(){
+    console.log(this.state.currentNoteID, 'currentNoteID inside currentContent')
 
     if(this.state.currentNoteID || Object.keys(this.props.initialData).length === 3 ){
       console.log(this.props.initialData.notes, "initial data")
     if (this.state.currentNoteID){
-      return <Note note={this.state.notes[this.state.currentNoteID].content}/>
+      return <Note
+        noteListClick={this.fetchNoteList}
+        note={this.state.notes[this.state.currentNoteID].content}/>
     }else{
-      return <Note note={this.props.initialData.notes[Object.keys(this.props.initialData.notes)[0]].content}/>
+      return <Note
+
+        noteListClick={this.fetchNoteList}
+        note={this.props.initialData.notes[Object.keys(this.props.initialData.notes)[0]].content}/>
     }
 
     }else{
@@ -108,7 +166,7 @@ class App extends React.Component {
       <div>
         <div>{this.state.pageHeader}
 
-            {this.currentNote()}
+            {this.currentContent()}
          </div>
 
       </div>
